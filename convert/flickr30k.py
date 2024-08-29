@@ -2,8 +2,8 @@ import json
 import uuid
 
 # Define the input and output file paths
-input_file_path = '../.cache/lavis/flickr30k/annotations/test.json'
-output_file_path = './test.json'
+input_file_path = '../.cache/lavis/flickr30k/annotations/train.json'
+output_file_path = './train.json'
 
 # Read the input JSON file
 with open(input_file_path, 'r') as file:

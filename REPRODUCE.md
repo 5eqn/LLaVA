@@ -14,3 +14,13 @@
 2. Run `bash convert/flickr30k.sh`
 3. Get pretrained projector weight with `git clone https://huggingface.co/liuhaotian/llava-v1.5-mlp2x-336px-pretrain-vicuna-7b-v1.5` at home directory
 4. Run `bash scripts/v1_5/finetune-flickr30k.sh`
+
+## Quick reinstall
+
+```
+pip uninstall llava
+pip install --upgrade pip  # enable PEP 660 support
+pip install -e .
+pip install -e ".[train]"
+pip install flash-attn --no-build-isolation
+```

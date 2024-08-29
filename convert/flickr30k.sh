@@ -1,5 +1,5 @@
 # Convert Flickr30k dataset to compatible format for train dataset
-python convert/flickr30k.py '../.cache/lavis/flickr30k/annotations/train.json' './playground/data/train.json'
+python convert/flickr30k-train.py '../.cache/lavis/flickr30k/annotations/train.json' './playground/data/train.json'
 # python convert/flickr30k.py --input_file='../.cache/lavis/flickr30k/annotations/val.json' --output_file='./playground/data/val.json'
 # python convert/flickr30k.py --input_file='../.cache/lavis/flickr30k/annotations/test.json' --output_file='./playground/data/test.json'
 

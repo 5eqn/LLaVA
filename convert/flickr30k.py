@@ -13,6 +13,7 @@ args = parser.parse_args()
 # Define the input and output file paths from command line arguments
 input_file_path = args.input_file
 output_file_path = args.output_file
+print(f"Convert {input_file_path} to {output_file_path}")
 
 # Read the input JSON file
 with open(input_file_path, 'r') as file:

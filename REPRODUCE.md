@@ -1,3 +1,7 @@
+## Preparation
+
+1. Add extra PyTorch index: `pip config set global.extra-index-url https://download.pytorch.org/whl/cu118`
+
 ## Evaluate Flickr30k
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo

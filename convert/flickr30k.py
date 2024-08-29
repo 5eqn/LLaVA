@@ -1,9 +1,18 @@
 import json
 import uuid
 
-# Define the input and output file paths
-input_file_path = '../.cache/lavis/flickr30k/annotations/train.json'
-output_file_path = 'playground/data/train.json'
+import argparse
+
+# Set up argument parsing
+parser = argparse.ArgumentParser(description='Process JSON data.')
+parser.add_argument('input_file', type=str, help='Path to the input JSON file')
+parser.add_argument('output_file', type=str,
+                    help='Path to the output JSON file')
+args = parser.parse_args()
+
+# Define the input and output file paths from command line arguments
+input_file_path = args.input_file
+output_file_path = args.output_file
 
 # Read the input JSON file
 with open(input_file_path, 'r') as file:

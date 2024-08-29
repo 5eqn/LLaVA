@@ -13,7 +13,7 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
-    "torch==2.1.2", "torchvision==0.16.2",
+    "torch==1.13.1+cu117", "torchvision==0.14.1+cu117",
     "transformers==4.37.2", "tokenizers==0.15.1", "sentencepiece==0.1.99", "shortuuid",
     "accelerate==0.21.0", "peft", "bitsandbytes",
     "pydantic", "markdown2[all]", "numpy", "scikit-learn==1.2.2",
@@ -21,6 +21,10 @@ dependencies = [
     "requests", "httpx==0.24.0", "uvicorn", "fastapi",
     "einops==0.6.1", "einops-exts==0.0.4", "timm==0.6.13",
 ]
+
+[[project.source]]
+url = "https://download.pytorch.org/whl/cu117"
+name = "pytorch"
 
 [project.optional-dependencies]
 train = ["deepspeed==0.12.6", "ninja", "wandb"]

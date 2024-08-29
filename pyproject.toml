@@ -22,10 +22,6 @@ dependencies = [
     "einops==0.6.1", "einops-exts==0.0.4", "timm==0.6.13",
 ]
 
-[[project.source]]
-url = "https://download.pytorch.org/whl/cu117"
-name = "pytorch"
-
 [project.optional-dependencies]
 train = ["deepspeed==0.12.6", "ninja", "wandb"]
 build = ["build", "twine"]

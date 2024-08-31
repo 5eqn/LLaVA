@@ -25,21 +25,12 @@ for item in data:
     image = item['image']
     captions = item['caption']
     for i in range(len(captions)):
-        conversation = {
-            "id": str(uuid.uuid4()),
+        entry = {
+            "question_id": str(uuid.uuid4()),
             "image": image,
-            "conversations": [
-                {
-                    "from": "human",
-                    "value": "<image>\nA short image caption."
-                },
-                {
-                    "from": "gpt",
-                    "value": captions[i]
-                }
-            ]
+            "text": "A short image caption.",
         }
-        output_data.append(conversation)
+        output_data.append(entry)
 
 # Write the output JSON file
 with open(output_file_path, 'w') as file:

@@ -10,6 +10,7 @@ def read_csv(file_path):
     with open(file_path, 'r') as f:
         reader = csv.reader(f, delimiter='|')
         for row in reader:
+            print(row)
             image_name = row[0].strip()
             comment = row[2].strip()
             image_comments[image_name].append(comment)

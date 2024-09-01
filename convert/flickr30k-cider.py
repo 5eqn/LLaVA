@@ -16,11 +16,6 @@ def read_csv(file_path):
     return image_comments
 
 
-def read_json(file_path):
-    with open(file_path, 'r') as f:
-        return json.load(f)
-
-
 def read_jsonl(file_path):
     data = []
     with open(file_path, 'r') as f:
@@ -31,7 +26,7 @@ def read_jsonl(file_path):
 
 def main(ground_truth_path, question_path, answer_path):
     image_comments = read_csv(ground_truth_path)
-    questions = read_json(question_path)
+    questions = read_jsonl(question_path)
     answers = read_jsonl(answer_path)
 
     question_to_image = {q['question_id']: q['image'] for q in questions}

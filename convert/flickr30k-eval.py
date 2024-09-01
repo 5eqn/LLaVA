@@ -30,6 +30,6 @@ with open(output_file_path, 'w') as file:
                 "image": image,
                 "text": "A short image caption.",
             }) + "\n"
-            file.append(line)
+            file.write(line)
 
 print(f"Processed data has been written to {output_file_path}")

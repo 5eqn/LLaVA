@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 from collections import defaultdict
 from cider import CiderScorer
 
@@ -52,8 +53,8 @@ if __name__ == "__main__":
         print("Usage: python script.py <ground_truth_path> <question_path> <answer_path>")
         sys.exit(1)
 
-    ground_truth_path = sys.argv[1]
-    question_path = sys.argv[2]
-    answer_path = sys.argv[3]
+    ground_truth_path = os.path.expanduser(sys.argv[1])
+    question_path = os.path.expanduser(sys.argv[2])
+    answer_path = os.path.expanduser(sys.argv[3])
 
     main(ground_truth_path, question_path, answer_path)

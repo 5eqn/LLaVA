@@ -1,23 +1,15 @@
-import sys
 import json
-import csv
+import sys
 from collections import defaultdict
 from cider import CiderScorer
 
 
-def read_csv(file_path):
-    image_comments = defaultdict(list)
+def load_json(file_path):
     with open(file_path, 'r') as f:
-        reader = csv.reader(f, delimiter='|')
-        for row in reader:
-            print(row)
-            image_name = row[0].strip()
-            comment = row[2].strip()
-            image_comments[image_name].append(comment)
-    return image_comments
+        return json.load(f)
 
 
-def read_jsonl(file_path):
+def load_jsonl(file_path):
     data = []
     with open(file_path, 'r') as f:
         for line in f:
@@ -26,20 +18,31 @@ def read_jsonl(file_path):
 
 
 def main(ground_truth_path, question_path, answer_path):
-    image_comments = read_csv(ground_truth_path)
-    questions = read_jsonl(question_path)
-    answers = read_jsonl(answer_path)
+    # Load data
+    ground_truth = load_json(ground_truth_path)
+    questions = load_jsonl(question_path)
+    answers = load_jsonl(answer_path)
 
-    question_to_image = {q['question_id']: q['image'] for q in questions}
+    # Create a mapping from image name to ground truth captions
+    image_to_captions = {item['image']: item['caption']
+                         for item in ground_truth}
 
+    # Create a mapping from question_id to image name
+    question_id_to_image = {q['question_id']: q['image'] for q in questions}
+
+    # Initialize CIDEr scorer
     cider_scorer = CiderScorer(n=4, sigma=6.0)
 
+    # Process each answer
     for answer in answers:
         question_id = answer['question_id']
-        image_name = question_to_image[question_id]
-        gt_answers = image_comments[image_name]
-        cider_scorer.append((answer['text'], gt_answers))
+        image = question_id_to_image.get(question_id)
+        if image:
+            gt_answers = image_to_captions.get(image)
+            if gt_answers:
+                cider_scorer += (answer['text'], gt_answers)
 
+    # Compute CIDEr score
     (score, scores) = cider_scorer.compute_score()
     print(f"CIDEr Score: {score}")
 

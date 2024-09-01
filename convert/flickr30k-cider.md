@@ -2,27 +2,42 @@ You are a experienced programmer using Linux. Please write a Python script accor
 
 ## Environment
 
-Content of ground truth `../.cache/lavis/flickr30k/images/flickr30k-images/results.csv`:
+Content of ground truth `../.cache/lavis/flickr30k/annotations/test.json`:
 
 ```csv
-image_name| comment_number| comment
-1000092795.jpg| 0| Two young guys with shaggy hair look at their hands while hanging out
-in the yard .
-1000092795.jpg| 1| Two young , White males are outside near many bushes .
-1000092795.jpg| 2| Two men in green shirts are standing in a yard .
-1000092795.jpg| 3| A man in a blue shirt standing in a garden .
-1000092795.jpg| 4| Two friends enjoy time spent together .
-10002456.jpg| 0| Several men in hard hats are operating a giant pulley system .
-10002456.jpg| 1| Workers look down from up above on a piece of equipment .
-10002456.jpg| 2| Two men working on a machine wearing hard hats .
-10002456.jpg| 3| Four men on top of a tall structure .
-10002456.jpg| 4| Three men on a large rig .
-1000268201.jpg| 0| A child in a pink dress is climbing up a set of stairs in an entry way
- .
-1000268201.jpg| 1| A little girl in a pink dress going into a wooden cabin .
-1000268201.jpg| 2| A little girl climbing the stairs to her playhouse .
-1000268201.jpg| 3| A little girl climbing into a wooden playhouse
-1000268201.jpg| 4| A girl going into a wooden building .
+[
+    {
+        "image": "flickr30k-images/1007129816.jpg",
+        "caption": [
+            "The man with pierced ears is wearing glasses and an orange hat.",
+            "A man with glasses is wearing a beer can crocheted hat.",
+            "A man with gauges and glasses is wearing a Blitz hat.",
+            "A man in an orange hat starring at something.",
+            "A man wears an orange hat and glasses."
+        ]
+    },
+    {
+        "image": "flickr30k-images/1009434119.jpg",
+        "caption": [
+            "A black and white dog is running in a grassy garden surrounded by a white fence.",
+            "A Boston Terrier is running on lush green grass in front of a white fence.",
+            "A black and white dog is running through the grass.",
+            "A dog runs onthe green grass near a wooden fence.",
+            "A Boston terrier is running in the grass."
+        ]
+    },
+    {
+        "image": "flickr30k-images/101362133.jpg",
+        "caption": [
+            "A young female student performing a downward kick to break a board held by her Karate instructor.",
+            "Girl about to kick a piece of wood in half while karate instructor holds it",
+            "A girl kicking a stick that a man is holding in tae kwon do class.",
+            "A girl in karate uniform breaking a stick with a front kick.",
+            "A girl breaking boards by using karate."
+        ]
+    },
+    ...
+]
 ```
 
 Content of question `./playground/data/eval/flickr30k/test.jsonl`:
@@ -71,6 +86,6 @@ with open(answer_path, 'r') as f:
 
 You should change the example usage according to actual requirements.
 
-Note that `gt_answers` has multiple entries. You should get `gt_answers` by getting `question_id` in answer file, then get `image` from question file, then get all 5 comments from grount truth CSV.
+Note that `gt_answers` has multiple entries. You should get `gt_answers` by getting `question_id` in answer file, then get `image` from question file, then get all 5 comments from grount truth.
 
 You should read all paths from command line arguments.

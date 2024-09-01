@@ -1,5 +1,6 @@
 import json
 import uuid
+import os
 
 import argparse
 
@@ -11,8 +12,8 @@ parser.add_argument('output_file', type=str,
 args = parser.parse_args()
 
 # Define the input and output file paths from command line arguments
-input_file_path = args.input_file
-output_file_path = args.output_file
+input_file_path = os.path.expanduser(args.input_file)
+output_file_path = os.path.expanduser(args.output_file)
 print(f"Convert {input_file_path} to {output_file_path}")
 
 # Read the input JSON file

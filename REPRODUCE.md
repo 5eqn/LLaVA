@@ -8,6 +8,13 @@
 2. Run `bash scripts/v1_5/eval/vqav2.sh`
 3. (For fine-tuned) Run `bash scripts/v1_5/eval/vqav2-flickr30k.sh`
 
+## Evaluate OKVQA
+
+1. Download [OKVQA dataset](https://okvqa.allenai.org/download.html)
+2. TODO convert annotation format
+3. TODO Run `bash scripts/v1_5/eval/okvqa.sh`
+4. Evaluate according to `https://github.com/GT-Vision-Lab/VQA/blob/master/README.md`
+
 ## Evaluate Flickr30k
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo

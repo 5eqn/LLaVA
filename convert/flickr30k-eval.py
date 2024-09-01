@@ -24,12 +24,11 @@ with open(output_file_path, 'w') as file:
     for item in data:
         image = item['image']
         captions = item['caption']
-        for i in range(len(captions)):
-            line = json.dumps({
-                "question_id": str(uuid.uuid4()),
-                "image": image,
-                "text": "A short image caption.",
-            }) + "\n"
-            file.write(line)
+        line = json.dumps({
+            "question_id": str(uuid.uuid4()),
+            "image": image,
+            "text": "A short image caption.",
+        }) + "\n"
+        file.write(line)
 
 print(f"Processed data has been written to {output_file_path}")

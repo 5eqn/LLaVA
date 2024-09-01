@@ -912,7 +912,7 @@ def train(attn_implementation=None):
             model_args=model_args,
             fsdp=training_args.fsdp
         )
-        
+
         vision_tower = model.get_vision_tower()
         vision_tower.to(dtype=torch.bfloat16 if training_args.bf16 else torch.float16, device=training_args.device)
 
@@ -964,6 +964,7 @@ def train(attn_implementation=None):
                     **data_module)
 
     if list(pathlib.Path(training_args.output_dir).glob("checkpoint-*")):
+        print(f"Resuming from {training_args.output_dir}")
         trainer.train(resume_from_checkpoint=True)
     else:
         trainer.train()

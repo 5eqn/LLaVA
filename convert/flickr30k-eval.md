@@ -2,7 +2,7 @@ You are a experienced programmer using Linux. Please write a Python script accor
 
 ## Environment
 
-Content of `../.cache/lavis/flickr30k/annotations/test.json`:
+Content of `~/.cache/lavis/flickr30k/annotations/test.json`:
 
 ```json
 [
@@ -74,5 +74,5 @@ You create 5 test cases for each image. For test case `i`:
 
 ## I/O
 
-Input: `../.cache/lavis/flickr30k/annotations/test.json`
+Input: `~/.cache/lavis/flickr30k/annotations/test.json`
 Output: `./test.json`

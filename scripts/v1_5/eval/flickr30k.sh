@@ -32,4 +32,3 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
     cat ./playground/data/eval/flickr30k/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl >> "$output_file"
 done
 
-python convert/flickr30k-cider.py ../.cache/lavis/flickr30k/annotations/test.json ./playground/data/eval/flickr30k/test.jsonl ./playground/data/eval/flickr30k/answers/flickr30k/llava-v1.5-7b/merge.jsonl

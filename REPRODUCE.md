@@ -28,7 +28,7 @@
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-train.sh`
-3. Get pretrained projector weight with `git clone https://huggingface.co/liuhaotian/llava-v1.5-mlp2x-336px-pretrain-vicuna-7b-v1.5` at home directory
+3. Get pretrained projector weight with `git clone https://huggingface.co/liuhaotian/llava-v1.5-mlp2x-336px-pretrain-vicuna-7b-v1.5` at `../` directory
 4. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k.sh`
 5. Run `bash scripts/v1_5/finetune-flickr30k.sh`
 6. (For LoRA) Run `bash scripts/v1_5/finetune-flickr30k-lora.sh`

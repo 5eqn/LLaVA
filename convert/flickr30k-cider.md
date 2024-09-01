@@ -2,7 +2,7 @@ You are a experienced programmer using Linux. Please write a Python script accor
 
 ## Environment
 
-Content of ground truth `../.cache/lavis/flickr30k/annotations/test.json`:
+Content of ground truth `~/.cache/lavis/flickr30k/annotations/test.json`:
 
 ```csv
 [

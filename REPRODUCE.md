@@ -22,7 +22,7 @@
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-eval.sh`
 3. Run `bash scripts/v1_5/eval/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned/flickr30k.sh`
-4. Get CIDEr score with `python convert/flickr30k-cider.py ../.cache/lavis/flickr30k/annotations/test.json ./playground/data/eval/flickr30k/test.jsonl ./playground/data/eval/flickr30k/answers/flickr30k/llava-v1.5-7b/merge.jsonl`
+4. Get CIDEr score with `python convert/flickr30k-cider.py ~/.cache/lavis/flickr30k/annotations/test.json ./playground/data/eval/flickr30k/test.jsonl ./playground/data/eval/flickr30k/answers/flickr30k/llava-v1.5-7b/merge.jsonl`
 
 ## Finetune with Flickr30k
 

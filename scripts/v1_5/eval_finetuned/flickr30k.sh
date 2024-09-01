@@ -5,12 +5,12 @@ IFS=',' read -ra GPULIST <<< "$gpu_list"
 
 CHUNKS=${#GPULIST[@]}
 
-CKPT="llava-v1.5-7b"
+CKPT="llava-v1.5-7b-flickr30k"
 SPLIT="flickr30k"
 
 for IDX in $(seq 0 $((CHUNKS-1))); do
     CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python -m llava.eval.model_vqa_loader \
-        --model-path liuhaotian/$CKPT \
+        --model-path ./checkpoints/$CKPT \
         --question-file ./playground/data/eval/flickr30k/test.jsonl \
         --image-folder ./playground/data/eval/flickr30k \
         --answers-file ./playground/data/eval/flickr30k/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl \
@@ -32,4 +32,4 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
     cat ./playground/data/eval/flickr30k/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl >> "$output_file"
 done
 
-python convert/flickr30k-cider.py ../.cache/lavis/flickr30k/annotations/test.json ./playground/data/eval/flickr30k/test.jsonl ./playground/data/eval/flickr30k/answers/flickr30k/llava-v1.5-7b/merge.jsonl
+python convert/flickr30k-cider.py ../.cache/lavis/flickr30k/annotations/test.json ./playground/data/eval/flickr30k/test.jsonl ./playground/data/eval/flickr30k/answers/flickr30k/llava-v1.5-7b-flickr30k/merge.jsonl

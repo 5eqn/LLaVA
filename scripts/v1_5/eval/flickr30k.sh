@@ -14,7 +14,7 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
         --question-file ./playground/data/eval/flickr30k/test.jsonl \
         --image-folder ./playground/data/eval/flickr30k \
         --answers-file ./playground/data/eval/flickr30k/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl \
-        --max-new-tokens 20 \
+        --max_new_tokens 20 \
         --num-chunks $CHUNKS \
         --chunk-idx $IDX \
         --temperature 0 \

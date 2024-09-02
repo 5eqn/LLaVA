@@ -28,7 +28,7 @@ with open(output_file_path, 'w') as file:
         line = json.dumps({
             "question_id": str(uuid.uuid4()),
             "image": image,
-            "text": "A short image caption.",
+            "text": "Describe this image using one or more simple sentences",
         }) + "\n"
         file.write(line)
 

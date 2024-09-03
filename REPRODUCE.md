@@ -19,7 +19,8 @@
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-eval.sh`
-3. Run `bash scripts/v1_5/eval/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned_lora/flickr30k.sh`
+3. If using LoRA, merge weights with `python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-flickr30k-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-flickr30k-lora-merged/`
+4. Run `bash scripts/v1_5/eval/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned_lora/flickr30k.sh`
 
 ## Finetune with Flickr30k
 

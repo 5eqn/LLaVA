@@ -1,3 +1,17 @@
+## Merge LoRA Weight
+
+### Flickr30k
+
+```
+python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-flickr30k-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-flickr30k-lora-merged/
+```
+
+### OKVQA
+
+```
+python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-okvqa-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-okvqa-lora-merged/
+```
+
 ## Evaluate VQAv2
 
 1. Download VQAv2 dataset
@@ -10,25 +24,29 @@
 
 ## Evaluate OKVQA
 
-1. Download [OKVQA dataset](https://okvqa.allenai.org/download.html)
+1. Download [OKVQA dataset](https://okvqa.allenai.org/download.html) and unzip into `./playground/data/eval/okvqa`
 2. Run `bash convert/okvqa-eval.sh`
 3. Run `bash scripts/v1_5/eval/okvqa.sh`
-4. Evaluate according to `https://github.com/GT-Vision-Lab/VQA/blob/master/README.md`
 
 ## Evaluate Flickr30k
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-eval.sh`
-3. If using LoRA, merge weights with `python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-flickr30k-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-flickr30k-lora-merged/`
-4. Run `bash scripts/v1_5/eval/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned_lora/flickr30k.sh`
+3. Run `bash scripts/v1_5/eval/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned/flickr30k.sh` or `bash scripts/v1_5/eval_finetuned_lora/flickr30k.sh`
+
+## Finetune with OKVQA
+
+1. Download [OKVQA dataset](https://okvqa.allenai.org/download.html) and unzip into `./playground/data/eval/okvqa`
+2. Run `bash convert/okvqa-train.sh`
+3. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-okvqa.sh` and `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-okvqa-lora.sh`
+4. Run `bash scripts/v1_5/finetune-okvqa.sh` or `bash scripts/v1_5/finetune-okvqa-lora.sh`
 
 ## Finetune with Flickr30k
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-train.sh`
-3. Get pretrained projector weight with `git clone https://huggingface.co/liuhaotian/llava-v1.5-mlp2x-336px-pretrain-vicuna-7b-v1.5` at `../` directory
-4. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k.sh`
-5. Run `bash scripts/v1_5/finetune-flickr30k.sh` or `bash scripts/v1_5/finetune-flickr30k-lora.sh`
+3. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k.sh` and `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k-lora.sh`
+4. Run `bash scripts/v1_5/finetune-flickr30k.sh` or `bash scripts/v1_5/finetune-flickr30k-lora.sh`
 
 ## Quick Reinstall
 

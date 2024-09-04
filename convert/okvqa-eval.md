@@ -13,10 +13,10 @@ Content of `./playground/data/eval/okvqa/OpenEnded_mscoco_val2014_questions.json
 Your Python script should convert the above JSON to `./playground/data/eval/okvqa/test.jsonl` with format below:
 
 ```json
-{"question_id": 516065, "image": "COCO_val2014_000000051606.jpg", "text": "What is the hairstyle of the blond called?"}
-{"question_id": 4802085, "image": "COCO_val2014_000000081721.jpg", "text": "How old do you have to be in canada to do this?"}
+{"question_id": 516065, "image": "COCO_val2014_000000051606.jpg", "text": "What is the hairstyle of the blond called?\nAnswer the question using a single word or phrase."}
+{"question_id": 4802085, "image": "COCO_val2014_000000081721.jpg", "text": "How old do you have to be in canada to do this?\nAnswer the question using a single word or phrase."}
 ```
 
 You should change the example usage according to actual requirements.
 
-You should read all paths from command line arguments. 
+You should read all paths from command line arguments.

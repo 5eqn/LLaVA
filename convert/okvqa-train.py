@@ -25,7 +25,7 @@ def main(questions_path, annotations_path, output_path):
         image_id = annotation['image_id']
         question = next(q['question'] for q in questions_data['questions']
                         if q['question_id'] == question_id)
-        image_name = f"COCO_val2014_000000{image_id:06d}.jpg"
+        image_name = f"COCO_train2014_000000{image_id:06d}.jpg"
 
         for answer in annotation['answers']:
             conversation = {

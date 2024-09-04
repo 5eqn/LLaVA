@@ -63,7 +63,7 @@ Your Python script should convert the above JSON to `./playground/data/train/okv
 [
     {
         "id": "0f0d362d-1b75-4104-9aff-c2d4f457cc0e",
-        "image": "COCO_val2014_000000051606.jpg",
+        "image": "COCO_train2014_000000051606.jpg",
         "conversations": [
             {
                 "from": "human",
@@ -77,7 +77,7 @@ Your Python script should convert the above JSON to `./playground/data/train/okv
     },
     {
         "id": "b6608a4b-66b4-4818-8efb-8f9928cba13c",
-        "image": "COCO_val2014_000000051606.jpg",
+        "image": "COCO_train2014_000000051606.jpg",
         "conversations": [
             {
                 "from": "human",

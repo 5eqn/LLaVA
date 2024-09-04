@@ -1,5 +1,8 @@
-# Convert Flickr30k dataset to compatible format for train dataset
-python convert/flickr30k-train.py '~/.cache/lavis/flickr30k/annotations/train.json' './playground/data/train.json'
+# Ensure train dataset folder exists
+mkdir -p ./playground/data/train/flickr30k
 
-# Link image to train and eval dataset
-ln -s ~/.cache/lavis/flickr30k/images/flickr30k-images playground/data/flickr30k-images
+# Convert Flickr30k dataset to compatible format for train dataset
+python convert/flickr30k-train.py ~/.cache/lavis/flickr30k/annotations/train.json ./playground/data/train/flickr30k/train.json
+
+# Link image to train dataset
+ln -s ~/.cache/lavis/flickr30k/images/flickr30k-images playground/data/train/flickr30k/flickr30k-images

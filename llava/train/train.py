@@ -847,11 +847,11 @@ def train(attn_implementation=None):
 
     # Only train last `llm_train_depth` layers of LLM
     if model_args.llm_train_depth != -1:
-        layer_num = len(model.layers)
+        layer_num = len(model.model.layers)
         layer_num_to_freeze = layer_num - model_args.llm_train_depth
         print(f"Freeze first {layer_num_to_freeze} in {layer_num} layers")
         for i in range(0, layer_num_to_freeze):
-            m = model.layers[i]
+            m = model.model.layers[i]
             m.eval()
             for param in m.parameters():
                 param.requires_grad = False

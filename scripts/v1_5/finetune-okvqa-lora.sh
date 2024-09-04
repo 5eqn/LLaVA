@@ -5,8 +5,8 @@ deepspeed llava/train/train_mem.py \
     --deepspeed ./scripts/zero3.json \
     --model_name_or_path liuhaotian/llava-v1.5-7b \
     --version v1 \
-    --data_path ./playground/data/train/flickr30k/train.json \
-    --image_folder ./playground/data/train/flickr30k \
+    --data_path ./playground/data/train/okvqa/train.json \
+    --image_folder ./playground/data/train/okvqa/train2014 \
     --vision_tower openai/clip-vit-large-patch14-336 \
     --mm_projector_type mlp2x_gelu \
     --mm_vision_select_layer -2 \

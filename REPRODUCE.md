@@ -46,7 +46,7 @@ python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-okvq
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-train.sh`
 3. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k.sh` and `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k-lora.sh`
-4. Run `bash scripts/v1_5/finetune-flickr30k.sh` or `bash scripts/v1_5/finetune-flickr30k-lora.sh`
+4. Run `bash scripts/v1_5/finetune-flickr30k.sh` or `bash scripts/v1_5/finetune-flickr30k-lora.sh` or `bash scripts/v1_5/finetune-flickr30k-partial.sh`
 
 ## Quick Reinstall
 

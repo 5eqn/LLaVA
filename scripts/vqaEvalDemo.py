@@ -13,12 +13,13 @@ annFile     ='%s/mscoco_val2014_annotations.json'%(dataDir)
 quesFile    ='%s/OpenEnded_mscoco_val2014_questions.json'%(dataDir)
 imgDir      ='%s/val2014' %(dataDir)
 resultType  ='fake'
-fileTypes   = ['results', 'accuracy', 'evalQA', 'evalQuesType', 'evalAnsType'] 
+fileTypes   = ['results', 'accuracy', 'evalQA', 'evalQuesType', 'evalAnsType']
 
-# An example result json file has been provided in './Results' folder.  
+# An example result json file has been provided in './Results' folder.
 resFile = '%s/answers_upload/okvqa/%s.json'%(dataDir, model_name)
 
 # create vqa object and vqaRes object
+print(f"Evaluating VQA score from resFile={resFile}, annFile={annFile}, quesFile={quesFile}...")
 vqa = VQA(annFile, quesFile)
 vqaRes = vqa.loadRes(resFile, quesFile)
 
@@ -30,7 +31,7 @@ vqaEval = VQAEval(vqa, vqaRes, n=2)   #n is precision of accuracy (number of pla
 If you have a list of question ids on which you would like to evaluate your results, pass it as a list to below function
 By default it uses all the question ids in annotation file
 """
-vqaEval.evaluate() 
+vqaEval.evaluate()
 
 # print accuracies
 print "\n"

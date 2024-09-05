@@ -26,7 +26,7 @@ python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-okvq
 
 1. Download [OKVQA dataset](https://okvqa.allenai.org/download.html) and unzip into `./playground/data/eval/okvqa`
 2. Run `bash convert/okvqa-eval.sh`
-3. Run `bash scripts/v1_5/eval/okvqa.sh`
+3. Run `bash scripts/v1_5/eval/okvqa.sh` or `bash scripts/v1_5/eval_finetuned_lora/okvqa.sh`
 
 ## Evaluate Flickr30k
 

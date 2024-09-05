@@ -34,4 +34,4 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
 done
 
 python scripts/convert_vqav2_for_submission.py --split $SPLIT --ckpt $CKPT
-python scripts/vqaEvalDemo.py llava-1.5-7b
+python scripts/vqaEvalDemo.py $CKPT

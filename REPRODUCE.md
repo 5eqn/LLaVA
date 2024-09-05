@@ -3,24 +3,35 @@
 ### Flickr30k
 
 ```
-python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-flickr30k-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-flickr30k-lora-merged/
+python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-flickr30k-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-flickr30k-merged/
 ```
 
 ### OKVQA
 
 ```
-python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-okvqa-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-okvqa-lora-merged/
+python scripts/merge_lora_weights.py --model-path checkpoints/llava-v1.5-7b-okvqa-lora --model-base liuhaotian/llava-v1.5-7b --save-model-path checkpoints/llava-v1.5-7b-okvqa-merged/
+```
+
+## Evaluate Fine-tuned Model
+
+```
+CKPT=llava-v1.5-7b-flickr30k bash scripts/v1_5/custom/
+CKPT=llava-v1.5-7b-flickr30k-partial bash scripts/v1_5/custom/
+CKPT=llava-v1.5-7b-flickr30k-merged bash scripts/v1_5/custom/
+CKPT=llava-v1.5-7b-okvqa bash scripts/v1_5/custom/
+CKPT=llava-v1.5-7b-okvqa-partial bash scripts/v1_5/custom/
+CKPT=llava-v1.5-7b-okvqa-merged bash scripts/v1_5/custom/
 ```
 
 ## Evaluate VQAv2
 
 1. Download VQAv2 dataset
-2. Run `bash scripts/v1_5/eval/vqav2.sh` or `bash scripts/v1_5/eval_finetuned/vqav2.sh`
+2. Run `bash scripts/v1_5/eval/vqav2.sh`
 
 ## Evaluate VizWiz
 
 1. Download VizWiz dataset
-2. Run `bash scripts/v1_5/eval/vizwiz.sh` or `bash scripts/v1_5/eval_finetuned/vizwiz.sh`
+2. Run `bash scripts/v1_5/eval/vizwiz.sh`
 
 ## Evaluate OKVQA
 

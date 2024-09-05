@@ -50,22 +50,11 @@ CKPT=llava-v1.5-7b-okvqa-merged bash scripts/v1_5/custom/
 1. Download [OKVQA dataset](https://okvqa.allenai.org/download.html) and unzip into `./playground/data/eval/okvqa`
 2. Run `bash convert/okvqa-train.sh`
 3. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-okvqa.sh` and `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-okvqa-lora.sh`
-4. Run `bash scripts/v1_5/finetune-okvqa.sh` or `bash scripts/v1_5/finetune-okvqa-lora.sh`
+4. Run `bash scripts/v1_5/finetune-okvqa.sh`
 
 ## Finetune with Flickr30k
 
 1. Download Flickr30k dataset with automatic download tool in LAVIS repo
 2. Run `bash convert/flickr30k-train.sh`
 3. If GPU count `n` is 4, run `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k.sh` and `sed -i 's/--per_device_train_batch_size 16/--per_device_train_batch_size 32/' scripts/v1_5/finetune-flickr30k-lora.sh`
-4. Run `bash scripts/v1_5/finetune-flickr30k.sh` or `bash scripts/v1_5/finetune-flickr30k-lora.sh` or `bash scripts/v1_5/finetune-flickr30k-partial.sh`
-
-## Quick Reinstall
-
-```
-pip config unset global.extra-index-url
-pip uninstall llava
-pip install --upgrade pip  # enable PEP 660 support
-pip install -e .
-pip install -e ".[train]"
-pip install flash-attn --no-build-isolation
-```
+4. Run `bash scripts/v1_5/finetune-flickr30k.sh`

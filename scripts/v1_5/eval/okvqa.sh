@@ -33,5 +33,7 @@ for IDX in $(seq 0 $((CHUNKS-1))); do
     cat ./playground/data/eval/okvqa/answers/$SPLIT/$CKPT/${CHUNKS}_${IDX}.jsonl >> "$output_file"
 done
 
-python scripts/convert_vqav2_for_submission.py --split $SPLIT --ckpt $CKPT
+echo "Convert OKVQA for submission..."
+python scripts/convert_okvqa_for_submission.py --split $SPLIT --ckpt $CKPT
+echo "Evaluating VQA score..."
 python scripts/vqaEvalDemo.py $CKPT
